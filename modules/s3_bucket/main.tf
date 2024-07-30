@@ -8,7 +8,7 @@ locals {
 resource "aws_s3_bucket" "s3_bucket" {
   count         = var.create_bucket ? 1 : 0
   bucket        = local.bucket_name_def
-  force_destroy = true
+  force_destroy = var.force_destroy
 }
 
 data "aws_s3_bucket" "s3_bucket_data" {
