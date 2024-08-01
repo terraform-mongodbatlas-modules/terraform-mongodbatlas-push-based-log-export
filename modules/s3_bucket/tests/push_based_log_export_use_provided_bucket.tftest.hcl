@@ -27,7 +27,7 @@ run "create_bucket" {
   }
 
   variables {
-    bucket_name = "test-modules-tf-bucket-${run.generate_random_name.name_project}"
+    bucket_name = "mongodb-atlas-tf-${run.generate_random_name.name_project}"
   }
 }
 
@@ -42,8 +42,8 @@ run "use_provided_bucket" {
     project_id           = run.create_project.project_id
     bucket_name          = run.create_bucket.name_bucket
     create_bucket        = false
-    iam_role_name        = "test-modules-tf-role-${run.create_project.project_id}"
-    iam_role_policy_name = "test-modules-tf-policy-${run.create_project.project_id}"
+    iam_role_name        = "mongodb-atlas-test-acc-tf-${run.create_project.project_id}"
+    iam_role_policy_name = "mongodb-atlas-test-acc-tf-${run.create_project.project_id}"
   }
 
   assert {
@@ -52,12 +52,12 @@ run "use_provided_bucket" {
   }
 
   assert {
-    condition     = aws_iam_role.iam_role.name == "test-modules-tf-role-${run.create_project.project_id}"
+    condition     = aws_iam_role.iam_role.name == "mongodb-atlas-test-acc-tf-${run.create_project.project_id}"
     error_message = "Invalid role name"
   }
 
   assert {
-    condition     = aws_iam_role_policy.policy.name == "test-modules-tf-policy-${run.create_project.project_id}"
+    condition     = aws_iam_role_policy.policy.name == "mongodb-atlas-test-acc-tf-${run.create_project.project_id}"
     error_message = "Invalid policy name"
   }
 }
