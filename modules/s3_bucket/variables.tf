@@ -32,6 +32,6 @@ variable "iam_role_policy_name" {
 
 variable "force_destroy" {
   description = "Boolean that indicates if all objects should be deleted from the bucket when the bucket is destroyed so that it can be destroyed without error."
-  type = bool
-  default = false
+  type        = bool
+  default     = false
 }
