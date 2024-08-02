@@ -5,14 +5,14 @@ This example shows how you can use the s3 bucket submodule to enable push-based 
 
 ## Usage
 
-1. Set the following variables: 
+1. Set the following variable: 
 
 - `project_id`: ID of Atlas project
-- `public_key`: Atlas public key
-- `private_key`: Atlas private key
 
 2. Set the following environment variables:
 
+-  `export MONGODB_ATLAS_PUBLIC_KEY="<YOUR_PUBLIC_KEY>"`
+-  `export MONGODB_ATLAS_PRIVATE_KEY="<YOUR_PRIVATE_KEY>"`
 -  `export AWS_ACCESS_KEY_ID="<YOUR_ACCESS_KEY>"`
 -  `export AWS_SECRET_ACCESS_KEY="<YOUR_SECRET_KEY>"`
 -  `export AWS_REGION="<YOUR_REGION>"`
