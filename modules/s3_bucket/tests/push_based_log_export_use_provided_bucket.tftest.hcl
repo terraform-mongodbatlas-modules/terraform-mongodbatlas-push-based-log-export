@@ -52,6 +52,11 @@ run "use_provided_bucket" {
   }
 
   assert {
+    condition     = data.aws_s3_bucket.s3_bucket_data.arn == "arn:aws:s3:::${var.bucket_name}"
+    error_message = "Invalid arn"
+  }
+
+  assert {
     condition     = aws_iam_role.iam_role.name == "mongodb-atlas-test-acc-tf-${run.create_project.project_id}"
     error_message = "Invalid role name"
   }
