@@ -1,6 +1,6 @@
-# push-based-log-export-s3_bucket - create a new bucket with a default name
+# push-based-log-export-s3-bucket - create a new bucket with a default name
 
-This example shows how you can use the push-based-log-export-s3_bucket submodule to enable push-based logging in an Atlas project using a new s3 bucket that has a default name.
+This example shows how you can use the s3 bucket submodule to enable push-based logging in an Atlas project. The module will create a new s3 bucket with a default name.
 
 
 ## Usage
@@ -10,11 +10,16 @@ This example shows how you can use the push-based-log-export-s3_bucket submodule
 - `project_id`: ID of Atlas project
 - `public_key`: Atlas public key
 - `private_key`: Atlas private key
-- `aws_access_key`: AWS public key
-- `aws_secret_access_key`: AWS private key
-- `region`: AWS region
 
-2. Run the command as in the following example:
+2. Set the following environment variables:
+
+-  `export AWS_ACCESS_KEY_ID="<YOUR_ACCESS_KEY>"`
+-  `export AWS_SECRET_ACCESS_KEY="<YOUR_SECRET_KEY>"`
+-  `export AWS_REGION="<YOUR_REGION>"`
+
+3. In the `main.tf` file, set the `create_bucket` variable to `true`.
+
+4. Run the command as in the following example:
 
 ```bash
 $ terraform init

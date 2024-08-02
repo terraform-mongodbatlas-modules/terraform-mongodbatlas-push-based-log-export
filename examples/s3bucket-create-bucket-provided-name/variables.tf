@@ -12,18 +12,3 @@ variable "project_id" {
   description = "Atlas project id."
   type        = string
 }
-
-variable "aws_secret_access_key" {
-  description = "AWS private key."
-  type        = string
-}
-
-variable "aws_access_key" {
-  description = "AWS access key."
-  type        = string
-}
-
-variable "region" {
-  description = "AWS region."
-  type        = string
-}
