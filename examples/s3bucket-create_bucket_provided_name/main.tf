@@ -5,5 +5,5 @@ module "s3" {
   bucket_name          = "new-push-based-log-export-bucket"
   iam_role_name        = "new-push-based-log-export-role-name"
   iam_role_policy_name = "new-push-based-log-export-policy-name"
-  force_destroy = false
+  force_destroy        = false
 }
