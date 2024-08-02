@@ -15,7 +15,7 @@ You can find detailed information of the submodule's input and output variables 
 
 ## Usage 
 
-```hcl
+```terraform
 module "s3" {
   source  = "terraform-mongodbatlas-modules/push-based-log-export/mongodbatlas//modules/s3_bucket"
   version = "1.0.0"
@@ -29,6 +29,10 @@ module "s3" {
 ```
 
 The [examples](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-push-based-log-export/tree/main/examples) folder contains detailed examples that show how to use this submodule.
+
+- [s3bucket-create-bucket-generate-name](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-push-based-log-export/tree/main/examples/s3bucket-create-bucket-generate-name) shows how you can use the s3 bucket submodule to enable push-based logging in an Atlas project. The module will create a new s3 bucket with a default name.
+- [s3bucket-create-bucket-provided-name](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-push-based-log-export/tree/main/examples/s3bucket-create-bucket-provided-name) shows how you can use the s3 bucket submodule to enable push-based logging in an Atlas project. The module will create a new s3 bucket with the name specified.
+- [s3bucket-use-provided-bucket](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-push-based-log-export/tree/main/examples/s3bucket-use-provided-bucket) shows how you can use the s3 bucket submodule to enable push-based logging in an Atlas project. The module will use an existing s3 bucket provided by you.
 
 ## Resources
 
