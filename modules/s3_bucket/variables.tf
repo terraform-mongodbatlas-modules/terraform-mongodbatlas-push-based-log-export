@@ -4,7 +4,7 @@ variable "project_id" {
 }
 
 variable "bucket_name" {
-  description = "Name of the bucket that Atlas will sends the logs to. If you provide no value, a default value of the form {project_id}-atlas-push-log-{timestamp} is assigned (e.g., 66a7ae173df3c34412a71cd6-atlas-push-log-24-7-29-15-0-38)."
+  description = "Name of the bucket that Atlas will sends the logs to. If you provide no value, a default value of the form {project_id}-atlas-push-log-{random_string} is assigned (e.g., 66a7ae173df3c34412a71cd6-atlas-push-log-asdfg)."
   type        = string
   default     = null
   nullable    = true
@@ -17,7 +17,7 @@ variable "create_bucket" {
 }
 
 variable "iam_role_name" {
-  description = "Name of the IAM role to use to set up cloud provider access in Atlas. If you provide no value, a default value of the form {project_id}-push-based-log-export-role is assigned (e.g., 66a7ae173df3c34412a71cd6-push-based-log-export-role)."
+  description = "Name of the IAM role to use to set up cloud provider access in Atlas. If you provide no value, a default value of the form {project_id}-push-based-log-export-role-{random_string} is assigned (e.g., 66a7ae173df3c34412a71cd6-push-based-log-export-role-asdfg)."
   type        = string
   default     = null
   nullable    = true
