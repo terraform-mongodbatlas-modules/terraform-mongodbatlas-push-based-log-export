@@ -1,6 +1,6 @@
 # push-based-log-export-s3-bucket - create a new bucket with a provided name
 
-This example shows how you can use the s3 bucket submodule to enable push-based logging in an Atlas project. The module will create a new s3 bucket with a default name.
+This example shows how you can use the s3 bucket submodule to enable push-based logging in an Atlas project. The module will create a new s3 bucket with the name specified.
 
 
 ## Usage
