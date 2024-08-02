@@ -17,7 +17,7 @@ data "aws_s3_bucket" "s3_bucket_data" {
 
 resource "aws_iam_role" "iam_role" {
   name                 = local.iam_role_name_def
-  max_session_duration = 43200
+  max_session_duration = 43200 # PBLE requires a max role duration of 12 hours
   assume_role_policy   = <<EOF
     {
         "Version": "2012-10-17",
