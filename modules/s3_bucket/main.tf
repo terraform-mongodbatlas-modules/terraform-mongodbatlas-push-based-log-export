@@ -1,7 +1,14 @@
+resource "random_string" "this" {
+  length  = 5
+  special = false
+  numeric = false
+  upper   = false
+}
+
 locals {
-  # need to parse the date because bucket names do not accept ":"
-  bucket_name_def          = var.bucket_name == null ? "${var.project_id}-atlas-push-log-${formatdate("YY-M-D-h-m-s", timestamp())}" : var.bucket_name
-  iam_role_name_def        = var.iam_role_name == null ? "${var.project_id}-push-based-log-export-role" : var.iam_role_name
+  random_suffix            = random_string.this.result
+  bucket_name_def          = var.bucket_name == null ? "${var.project_id}-atlas-push-log-${local.random_suffix}" : var.bucket_name
+  iam_role_name_def        = var.iam_role_name == null ? "${var.project_id}-push-based-log-export-role-${local.random_suffix}" : var.iam_role_name
   iam_role_policy_name_def = var.iam_role_policy_name == null ? "${var.project_id}-push-based-log-export-policy" : var.iam_role_policy_name
 }
 
