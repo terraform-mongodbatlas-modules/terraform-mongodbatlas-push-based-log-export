@@ -46,7 +46,7 @@ Refer to the [MongoDB Atlas](https://registry.terraform.io/providers/mongodb/mon
 
 ## Considerations
 
-If you set the input variable `force_destroy` to true, if you dereference the module the AWS S3 Bucket will also be destroyed together with the rest of the resources, even if it has content and files inside.
+When you set the input variable `force_destroy` to true, if you dereference the module, the AWS S3 Bucket will also be destroyed together with the rest of the resources, even if it has content and files inside.
 
 
 ## License
