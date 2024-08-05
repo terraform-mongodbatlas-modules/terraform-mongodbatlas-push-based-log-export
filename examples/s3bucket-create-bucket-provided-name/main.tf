@@ -1,5 +1,5 @@
 module "s3" {
-  source               = "../../modules/s3_bucket"
+  source               = "../../modules/s3-bucket"
   project_id           = var.project_id
   create_bucket        = true
   bucket_name          = "new-push-based-log-export-bucket"
