@@ -6,7 +6,7 @@ It creates the following resources:
 
 - A MongoDB Atlas Cloud Provider Access Setup.
 - An AWS IAM Role.
-- An AWS S3 Bucket.
+- An AWS S3 Bucket (if the create_bucket input variable is set to true).
 - An AWS IAM Role Policy.
 - A MongoDB Atlas Cloud Provider Access Authorization.
 - Enables Push-Based Log Export in an Atlas project.
@@ -17,7 +17,7 @@ You can find detailed information of the submodule's input and output variables 
 
 ```terraform
 module "s3" {
-  source  = "terraform-mongodbatlas-modules/push-based-log-export/mongodbatlas//modules/s3_bucket"
+  source  = "terraform-mongodbatlas-modules/push-based-log-export/mongodbatlas//modules/s3-bucket"
   version = "1.0.0"
   project_id = "66a26b4c85718b1be4ff37cb"
   bucket_name = "my-bucket"
@@ -50,7 +50,7 @@ Refer to the [MongoDB Atlas](https://registry.terraform.io/providers/mongodb/mon
 
 ## Considerations
 
-When you set the input variable `force_destroy` to true, if you dereference the module, the AWS S3 Bucket will also be destroyed together with the rest of the resources, even if it has content and files inside.
+When you set the input variable `force_destroy` to true, if you remove the module, the AWS S3 Bucket will also be destroyed together with the rest of the resources, even if it has content and files inside.
 
 
 ## License

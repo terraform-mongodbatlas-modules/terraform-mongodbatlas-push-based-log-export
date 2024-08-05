@@ -10,7 +10,7 @@
     -  `export AWS_ACCESS_KEY_ID="<YOUR_ACCESS_KEY>"`
     -  `export AWS_SECRET_ACCESS_KEY="<YOUR_SECRET_KEY>"`
 
-3. Run from terminal the command `cd modules/s3_bucket`
+3. Run from terminal the command `cd modules/s3-bucket`
 
 4. Run from terminal the command `terraform init`
 

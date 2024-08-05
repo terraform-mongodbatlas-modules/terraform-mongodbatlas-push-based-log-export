@@ -2,7 +2,7 @@
 
 This Terraform module configures push-based log export in an Atlas project and consists of the following submodule:
 
-- [s3 bucket](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-push-based-log-export/tree/main/modules/s3_bucket)
+- [s3 bucket](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-push-based-log-export/tree/main/modules/s3-bucket)
 
 ## Requirements
 
