@@ -11,7 +11,7 @@ It creates the following resources:
 - A MongoDB Atlas Cloud Provider Access Authorization.
 - Enables Push-Based Log Export in an Atlas project.
 
-You can find detailed information of the submodule's input and output variables in the [Terraform Public Registry]()
+You can find detailed information of the submodule's input and output variables in the [Terraform Public Registry](https://registry.terraform.io/modules/terraform-mongodbatlas-modules/push-based-log-export/mongodbatlas/latest/submodules/s3-bucket)
 
 ## Usage 
 
