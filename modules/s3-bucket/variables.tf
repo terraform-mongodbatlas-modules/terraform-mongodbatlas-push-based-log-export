@@ -10,10 +10,10 @@ variable "bucket_name" {
   nullable    = true
 }
 
-variable "create_bucket" {
-  description = "Flag that determines whether the bucket resource has to be created or not."
+variable "use_existing_bucket" {
+  description = "Flag that determines whether the module uses an existing bucket or not."
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "iam_role_name" {
