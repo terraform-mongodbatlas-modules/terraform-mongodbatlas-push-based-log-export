@@ -1,33 +1,47 @@
 # push-based-log-export-s3-bucket - create a new bucket with a provided name
 
+_Note: you can see the full source code in the [github repository](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-push-based-log-export/tree/main/examples/s3bucket-create-bucket-provided-name)_
+
 This example shows how you can use the s3 bucket submodule to enable push-based logging in an Atlas project. The module will create a new s3 bucket with the name specified.
 
 
 ## Usage
 
-1. Set the following variable: 
+- Set the following variable: 
 
-- `project_id`: ID of Atlas project
+    - `project_id`: ID of Atlas project
 
-2. Set the following environment variables:
+- Set the following environment variables:
 
--  `export MONGODB_ATLAS_PUBLIC_KEY="<YOUR_PUBLIC_KEY>"`
--  `export MONGODB_ATLAS_PRIVATE_KEY="<YOUR_PRIVATE_KEY>"`
--  `export AWS_ACCESS_KEY_ID="<YOUR_ACCESS_KEY>"`
--  `export AWS_SECRET_ACCESS_KEY="<YOUR_SECRET_KEY>"`
--  `export AWS_REGION="<YOUR_REGION>"`
+    -  `export MONGODB_ATLAS_PUBLIC_KEY="<YOUR_PUBLIC_KEY>"`
+    -  `export MONGODB_ATLAS_PRIVATE_KEY="<YOUR_PRIVATE_KEY>"`
+    -  `export AWS_ACCESS_KEY_ID="<YOUR_ACCESS_KEY>"`
+    -  `export AWS_SECRET_ACCESS_KEY="<YOUR_SECRET_KEY>"`
+    -  `export AWS_REGION="<YOUR_REGION>"`
 
-3. In the `main.tf` file, set the `create_bucket` variable to `true` and provide a value for the `bucket_name`, `iam_role_name` and `iam_role_policy_name` variables.
+- In the `main.tf` file, set the `create_bucket` variable to `true` and provide a value for the `bucket_name`, `iam_role_name` and `iam_role_policy_name` variables.
 
-4. Run the command as in the following example:
+- Run the following command to initialize your project:
 
 ```bash
 $ terraform init
+```
+
+- Run the following command to review the execution plan:
+
+```bash
 $ terraform plan
+```
+
+- Run the following command to deploy your infrastructure:
+
+```bash
 $ terraform apply
 ```
 
 ## Resources
+
+The module creates the following resources:
 
 | Name | Type |
 |------|------|

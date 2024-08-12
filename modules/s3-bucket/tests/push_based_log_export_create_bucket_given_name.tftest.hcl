@@ -31,7 +31,7 @@ run "create_bucket_with_provided_name" {
   variables {
     project_id           = run.create_project.project_id
     bucket_name          = "mongodb-atlas-tf-${run.generate_random_name.name_project}"
-    create_bucket        = true
+    use_existing_bucket  = false
     iam_role_name        = "mongodb-atlas-test-acc-tf-${run.create_project.project_id}"
     iam_role_policy_name = "mongodb-atlas-test-acc-tf-${run.create_project.project_id}"
     force_destroy        = true

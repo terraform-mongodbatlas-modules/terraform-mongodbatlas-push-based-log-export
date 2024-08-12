@@ -36,6 +36,8 @@ The [examples](https://github.com/terraform-mongodbatlas-modules/terraform-mongo
 
 ## Resources
 
+The module creates the following resources:
+
 | Name | Type |
 |------|------|
 | [mongodbatlas_push_based_log_export](https://registry.terraform.io/providers/mongodb/mongodbatlas/latest/docs/resources/push_based_log_export) | resource |

@@ -41,7 +41,7 @@ run "use_provided_bucket" {
   variables {
     project_id           = run.create_project.project_id
     bucket_name          = run.create_bucket.name_bucket
-    create_bucket        = false
+    use_existing_bucket  = true
     iam_role_name        = "mongodb-atlas-test-acc-tf-${run.create_project.project_id}"
     iam_role_policy_name = "mongodb-atlas-test-acc-tf-${run.create_project.project_id}"
   }

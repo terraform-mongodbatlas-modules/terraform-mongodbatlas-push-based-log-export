@@ -13,13 +13,13 @@ locals {
 }
 
 resource "aws_s3_bucket" "s3_bucket" {
-  count         = var.create_bucket ? 1 : 0
+  count         = var.use_existing_bucket ? 0 : 1
   bucket        = local.bucket_name_def
   force_destroy = var.force_destroy
 }
 
 data "aws_s3_bucket" "s3_bucket_data" {
-  bucket = var.create_bucket ? aws_s3_bucket.s3_bucket[0].id : local.bucket_name_def
+  bucket = var.use_existing_bucket ? local.bucket_name_def : aws_s3_bucket.s3_bucket[0].id
 }
 
 resource "aws_iam_role" "iam_role" {

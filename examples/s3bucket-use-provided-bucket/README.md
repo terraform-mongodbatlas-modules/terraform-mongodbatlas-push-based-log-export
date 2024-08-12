@@ -1,33 +1,47 @@
 # push-based-log-export-s3-bucket - use an existing bucket
 
+_Note: you can see the full source code in the [github repository](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-push-based-log-export/tree/main/examples/s3bucket-use-provided-bucket)_
+
 This example shows how you can use the s3 bucket submodule to enable push-based logging in an Atlas project. The module will use an existing s3 bucket provided by you.
 
 
 ## Usage
 
-1. Set the following variable: 
+- Set the following variable: 
 
-- `project_id`: ID of Atlas project
+    - `project_id`: ID of Atlas project
 
-2. Set the following environment variables:
+- Set the following environment variables:
 
--  `export MONGODB_ATLAS_PUBLIC_KEY="<YOUR_PUBLIC_KEY>"`
--  `export MONGODB_ATLAS_PRIVATE_KEY="<YOUR_PRIVATE_KEY>"`
--  `export AWS_ACCESS_KEY_ID="<YOUR_ACCESS_KEY>"`
--  `export AWS_SECRET_ACCESS_KEY="<YOUR_SECRET_KEY>"`
--  `export AWS_REGION="<YOUR_REGION>"`
+    -  `export MONGODB_ATLAS_PUBLIC_KEY="<YOUR_PUBLIC_KEY>"`
+    -  `export MONGODB_ATLAS_PRIVATE_KEY="<YOUR_PRIVATE_KEY>"`
+    -  `export AWS_ACCESS_KEY_ID="<YOUR_ACCESS_KEY>"`
+    -  `export AWS_SECRET_ACCESS_KEY="<YOUR_SECRET_KEY>"`
+    -  `export AWS_REGION="<YOUR_REGION>"`
 
-3. In the `main.tf` file, set the `create_bucket` variable to `false` and provide an existing s3 bucket name for the `bucket_name` variable.
+- In the `main.tf` file, set the `create_bucket` variable to `false` and provide an existing s3 bucket name for the `bucket_name` variable.
 
-4. Run the command as in the following example:
+- Run the following command to initialize your project:
 
 ```bash
 $ terraform init
+```
+
+- Run the following command to review the execution plan:
+
+```bash
 $ terraform plan
+```
+
+- Run the following command to deploy your infrastructure:
+
+```bash
 $ terraform apply
 ```
 
 ## Resources
+
+The module creates the following resources:
 
 | Name | Type |
 |------|------|
