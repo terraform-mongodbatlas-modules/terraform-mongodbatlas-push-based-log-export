@@ -18,7 +18,6 @@ You can find detailed information of the submodule's input and output variables 
 ```terraform
 module "s3" {
   source  = "terraform-mongodbatlas-modules/push-based-log-export/mongodbatlas//modules/s3-bucket"
-  version = "1.0.0"
   project_id = "66a26b4c85718b1be4ff37cb"
   bucket_name = "my-bucket"
   create_bucket = true
@@ -47,6 +46,10 @@ The module creates the following resources:
 | [aws_iam_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) | resource |
 | [aws_iam_role_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy) | resource |
 | [aws_s3_bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/s3_bucket) | data source | resource |
+
+
+-> NOTE: Push based log export can only be enabled once per project.
+
 
 Refer to the [MongoDB Atlas](https://registry.terraform.io/providers/mongodb/mongodbatlas/latest/docs) and [AWS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs) Terraform providers documentations if you want more information.
 

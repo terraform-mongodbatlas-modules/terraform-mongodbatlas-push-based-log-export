@@ -9,7 +9,7 @@ locals {
   random_suffix            = random_string.this.result
   bucket_name_def          = var.bucket_name == null ? "${var.project_id}-atlas-push-log-${local.random_suffix}" : var.bucket_name
   iam_role_name_def        = var.iam_role_name == null ? "${var.project_id}-push-based-log-export-role-${local.random_suffix}" : var.iam_role_name
-  iam_role_policy_name_def = var.iam_role_policy_name == null ? "${var.project_id}-push-based-log-export-policy" : var.iam_role_policy_name
+  iam_role_policy_name_def = var.iam_role_policy_name == null ? "${var.project_id}-push-based-log-export-policy-${local.random_suffix}" : var.iam_role_policy_name
 }
 
 resource "aws_s3_bucket" "s3_bucket" {
