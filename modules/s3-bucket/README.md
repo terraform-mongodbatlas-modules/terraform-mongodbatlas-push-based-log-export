@@ -48,7 +48,7 @@ The module creates the following resources:
 | [aws_s3_bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/s3_bucket) | data source | resource |
 
 
--> NOTE: Push based log export can only be enabled once per project.
+-> NOTE: Each project can only have a single module defining push based log export configuration.
 
 
 Refer to the [MongoDB Atlas](https://registry.terraform.io/providers/mongodb/mongodbatlas/latest/docs) and [AWS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs) Terraform providers documentations if you want more information.
