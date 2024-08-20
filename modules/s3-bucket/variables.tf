@@ -24,7 +24,7 @@ variable "iam_role_name" {
 }
 
 variable "iam_role_policy_name" {
-  description = "Name of the IAM role policy for the configured aws_iam_role_name. If you provide no value, a default value of the form {project_id}-push-based-log-export-policy is assigned (e.g., 66a7ae173df3c34412a71cd6-push-based-log-export-policy)."
+  description = "Name of the IAM role policy for the configured aws_iam_role_name. If you provide no value, a default value of the form {project_id}-push-based-log-export-policy-{random_string} is assigned (e.g., 66a7ae173df3c34412a71cd6-push-based-log-export-policy-asdfg)."
   type        = string
   default     = null
   nullable    = true
