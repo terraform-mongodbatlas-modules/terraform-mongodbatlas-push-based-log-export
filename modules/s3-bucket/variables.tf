@@ -35,3 +35,9 @@ variable "force_destroy" {
   type        = bool
   default     = false
 }
+
+variable "prefix_path" {
+  description = "S3 prefix path where Atlas will store the logs."
+  type        = string
+  default     = "push-based-log"
+}

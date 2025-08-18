@@ -22,6 +22,15 @@ data "aws_s3_bucket" "s3_bucket_data" {
   bucket = var.use_existing_bucket ? local.bucket_name_def : aws_s3_bucket.s3_bucket[0].id
 }
 
+module "log_export" {
+  source = "../log-export"
+  
+  project_id            = var.project_id
+  iam_assumed_role_arn  = aws_iam_role.iam_role.arn
+  bucket_name           = local.bucket_name_def
+  prefix_path           = var.prefix_path
+}
+
 resource "aws_iam_role" "iam_role" {
   name                 = local.iam_role_name_def
   max_session_duration = 43200 # PBLE requires a max role duration of 12 hours
@@ -32,12 +41,12 @@ resource "aws_iam_role" "iam_role" {
             {
             "Effect": "Allow",
             "Principal": {
-                "AWS": "${mongodbatlas_cloud_provider_access_setup.setup.aws_config[0].atlas_aws_account_arn}"
+                "AWS": "${module.log_export.aws_configuration[0].atlas_aws_account_arn}"
             },
             "Action": "sts:AssumeRole",
             "Condition": {
                 "StringEquals": {
-                "sts:ExternalId": "${mongodbatlas_cloud_provider_access_setup.setup.aws_config[0].atlas_assumed_role_external_id}"
+                "sts:ExternalId": "${module.log_export.aws_configuration[0].atlas_assumed_role_external_id}"
                 }
             }
             }
@@ -72,23 +81,4 @@ resource "aws_iam_role_policy" "policy" {
     EOF
 }
 
-resource "mongodbatlas_cloud_provider_access_setup" "setup" {
-  project_id    = var.project_id
-  provider_name = "AWS"
-}
 
-resource "mongodbatlas_cloud_provider_access_authorization" "auth" {
-  project_id = var.project_id
-  role_id    = mongodbatlas_cloud_provider_access_setup.setup.role_id
-
-  aws {
-    iam_assumed_role_arn = aws_iam_role.iam_role.arn
-  }
-}
-
-resource "mongodbatlas_push_based_log_export" "push_log" {
-  project_id  = var.project_id
-  bucket_name = local.bucket_name_def
-  iam_role_id = mongodbatlas_cloud_provider_access_authorization.auth.role_id
-  prefix_path = "push-based-log"
-}

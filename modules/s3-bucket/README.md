@@ -4,12 +4,12 @@ This Terraform submodule configures [push-based log export](https://www.mongodb.
 
 It creates the following resources:
 
-- A MongoDB Atlas Cloud Provider Access Setup.
+- An AWS S3 Bucket (if the use_existing_bucket input variable is set to false).
 - An AWS IAM Role.
-- An AWS S3 Bucket (if the create_bucket input variable is set to true).
 - An AWS IAM Role Policy.
-- A MongoDB Atlas Cloud Provider Access Authorization.
-- Enables Push-Based Log Export in an Atlas project.
+- Configures MongoDB Atlas push-based log export using the `log-export` module.
+
+The module leverages the internal `log-export` module to handle all Atlas-specific resources and configurations.
 
 You can find detailed information of the submodule's input and output variables in the [Terraform Public Registry](https://registry.terraform.io/modules/terraform-mongodbatlas-modules/push-based-log-export/mongodbatlas/latest/submodules/s3-bucket)
 
@@ -20,10 +20,11 @@ module "s3" {
   source  = "terraform-mongodbatlas-modules/push-based-log-export/mongodbatlas//modules/s3-bucket"
   project_id = "66a26b4c85718b1be4ff37cb"
   bucket_name = "my-bucket"
-  create_bucket = true
+  use_existing_bucket = false
   iam_role_name = "push-log-role"
   iam_role_policy_name = "push-log-policy"
   force_destroy = false
+  prefix_path = "push-based-log"
 }
 ```
 
@@ -39,13 +40,15 @@ The module creates the following resources:
 
 | Name | Type |
 |------|------|
-| [mongodbatlas_push_based_log_export](https://registry.terraform.io/providers/mongodb/mongodbatlas/latest/docs/resources/push_based_log_export) | resource |
-| [mongodbatlas_cloud_provider_access_setup](https://registry.terraform.io/providers/mongodb/mongodbatlas/latest/docs/resources/cloud_provider_access#mongodbatlas_cloud_provider_access_setup) | resource |
-| [mongodbatlas_cloud_provider_access_authorization](https://registry.terraform.io/providers/mongodb/mongodbatlas/latest/docs/resources/cloud_provider_access#mongodbatlas_cloud_provider_access_authorization) | resource |
 | [aws_s3_bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket) | resource |
 | [aws_iam_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) | resource |
 | [aws_iam_role_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy) | resource |
-| [aws_s3_bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/s3_bucket) | data source | resource |
+| [aws_s3_bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/s3_bucket) | data source |
+
+Additionally, the module uses the `log-export` module internally, which creates:
+- MongoDB Atlas Cloud Provider Access Setup
+- MongoDB Atlas Cloud Provider Access Authorization  
+- MongoDB Atlas Push-Based Log Export
 
 
 -> NOTE: Each project can only have a single module defining push based log export configuration.

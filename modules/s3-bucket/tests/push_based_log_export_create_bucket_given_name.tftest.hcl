@@ -38,8 +38,8 @@ run "create_bucket_with_provided_name" {
   }
 
   assert {
-    condition     = mongodbatlas_cloud_provider_access_setup.setup.provider_name == "AWS"
-    error_message = "Invalid provider name"
+    condition     = module.log_export.aws_configuration[0].atlas_aws_account_arn != null
+    error_message = "AWS configuration should be present"
   }
 
   assert {
