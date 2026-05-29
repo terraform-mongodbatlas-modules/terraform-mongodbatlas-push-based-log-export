@@ -1,5 +1,7 @@
 # S3 Bucket Terraform Submodule
 
+> **Archived:** This repository is no longer maintained. Use the [project](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-project) and [cluster](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-cluster) modules from the [terraform-mongodbatlas-modules](https://github.com/terraform-mongodbatlas-modules/) organization instead. For up-to-date Terraform examples and reference implementations, see [atlas-examples](https://github.com/terraform-mongodbatlas-modules/atlas-examples).
+
 This Terraform submodule configures [push-based log export](https://www.mongodb.com/docs/atlas/push-logs/) to an AWS S3 Bucket in an Atlas project. 
 
 It creates the following resources:
