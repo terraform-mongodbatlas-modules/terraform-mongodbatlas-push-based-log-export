@@ -42,6 +42,8 @@ module "atlas_aws" {
 }
 ```
 
+`iam_role_policy_name` has no direct equivalent in `atlas-aws`, the IAM role policy is managed internally by the module.
+
 For the full S3 log export example, see [log_integration](https://github.com/terraform-mongodbatlas-modules/terraform-mongodbatlas-atlas-aws/tree/main/examples/log_integration).
 
 ## Links
